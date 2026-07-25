@@ -25,7 +25,7 @@
             
             --gradient-primary: linear-gradient(135deg, #6366f1 0%, #ec4899 50%, #f97316 100%);
             --gradient-ring: linear-gradient(135deg, #f97316, #ec4899, #6366f1, #10b981);
-            --gradient-resume: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+            --gradient-resume: linear-gradient(135deg, #36c2f1 0%, #36c2f1 50%, #36c2f1 100%);
             
             --shadow-sm: 0 4px 20px rgba(15, 23, 42, 0.04);
             --shadow-glow: 0 15px 35px rgba(99, 102, 241, 0.2);
@@ -49,6 +49,10 @@
             color: var(--text-primary);
             line-height: 1.8;
             overflow-x: hidden;
+            /* Disable text highlight */
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         body.intro-active {
             overflow: hidden;
@@ -101,7 +105,7 @@
         #portal-intro {
             position: fixed;
             inset: 0;
-            background: #f8fafc;
+            background: #060913;
             z-index: 99999;
             display: flex;
             flex-direction: column;
@@ -180,7 +184,7 @@
         .bg-line:nth-child(3) { left: 62%; }
         .bg-line:nth-child(4) { left: 88%; }
 
-        /* ===== NAVIGATION WITH EXTRA LINK SPACING ===== */
+        /* ===== NAVIGATION ===== */
         nav {
             position: fixed;
             top: 0;
@@ -358,9 +362,42 @@
             font-size: 1.18rem;
             color: var(--text-secondary);
             max-width: 700px;
-            margin-bottom: 48px;
+            margin-bottom: 36px;
             line-height: 1.85;
             font-weight: 500;
+        }
+
+        /* HERO SOCIAL BUTTONS */
+        .social-row {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 22px;
+            background: var(--bg-card);
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .social-btn i {
+            font-size: 1.1rem;
+            color: var(--accent-purple);
+        }
+        .social-btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+            color: var(--accent-purple);
         }
 
         .hero-cta-group {
@@ -427,7 +464,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
-        /* ===== EXPANDED SECTION SPACING ===== */
+        /* ===== SECTION SPACING ===== */
         .section {
             padding: 100px 0;
             position: relative;
@@ -818,11 +855,11 @@
             align-items: center;
             gap: 20px;
             background: var(--bg-card);
-            padding: 26px 30px;
+            padding: 22px 28px;
             border-radius: var(--radius);
             border: 1px solid #e2e8f0;
             box-shadow: var(--shadow-sm);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             transition: var(--transition);
         }
         .contact-card:hover {
@@ -839,9 +876,12 @@
             align-items: center;
             justify-content: center;
             font-size: 1.35rem;
+            flex-shrink: 0;
         }
         .contact-card .info h4 { font-size: 0.9rem; color: var(--text-secondary); }
         .contact-card .info p { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+        .contact-card .info a { color: var(--accent-purple); transition: var(--transition); }
+        .contact-card .info a:hover { color: var(--accent-pink); }
 
         .contact-form {
             background: var(--bg-card);
@@ -912,6 +952,29 @@
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+        }
+        .footer-social a:hover {
+            background: var(--accent-purple);
+            color: #ffffff;
+            border-color: var(--accent-purple);
+            transform: translateY(-3px);
         }
         .footer-copy {
             text-align: center;
@@ -1007,12 +1070,24 @@
                 </h2>
                 
                 <p class="hero-text">
-                    Full Stack Developer , Building Intelligent Software with Java, Spring Boot with
                     Engineering intelligent algorithms, data-driven insights, and immersive digital web experiences that turn complex problems into elegant solutions.
                 </p>
+
+                <!-- LINKEDIN & GITHUB BUTTONS IN HERO SECTION -->
+                <div class="social-row">
+                    <a href="https://www.linkedin.com/in/hariharan-r-25a841393/" target="_blank" class="social-btn">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/Hariharan-6270" target="_blank" class="social-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="mailto:hariharan6270@gmail.com" class="social-btn">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
                 
                 <div class="hero-cta-group">
-                    <a href="mailto:hariharanr6270@gmail.com" class="btn-hire"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+                    <a href="mailto:hariharan6270@gmail.com" class="btn-hire"><i class="fas fa-paper-plane"></i> Get In Touch</a>
                     <a href="Hariharan_Resume.pdf" download class="btn-resume"><i class="fas fa-file-arrow-down"></i> Download Resume</a>
                     <a href="#projects" class="btn-work"><i class="fas fa-briefcase"></i> Explore Work</a>
                 </div>
@@ -1267,6 +1342,22 @@
                             <p>Salem, Tamil Nadu, India</p>
                         </div>
                     </div>
+                    
+                    <!-- LINKEDIN & GITHUB CARDS IN CONTACT SECTION -->
+                    <div class="contact-card">
+                        <div class="icon"><i class="fab fa-linkedin-in"></i></div>
+                        <div class="info">
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/hariharan-r-25a841393/" target="_blank">Hariharan Ramesh</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon"><i class="fab fa-github"></i></div>
+                        <div class="info">
+                            <h4>GitHub</h4>
+                            <p><a href="https://github.com/Hariharan-6270" target="_blank">Hariharan-6270</a></p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="contact-form reveal-right">
@@ -1294,15 +1385,30 @@
     <footer>
         <div class="container footer-inner">
             <div class="footer-logo">Hariharan Ramesh</div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/hariharan-r-25a841393/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Hariharan-6270" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:hariharan6270@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
             <div class="footer-copy">
                 &copy; 2026 Hariharan Ramesh. All rights reserved.
             </div>
         </div>
     </footer>
 
+    <!-- JAVASCRIPT -->
     <script>
+        // ---- DISABLE RIGHT-CLICK & INSPECT KEY SHORTCUTS ----
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12') e.preventDefault();
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) e.preventDefault();
+            if (e.ctrlKey && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key)) e.preventDefault();
+            if (e.ctrlKey && (e.key === 's' || e.key === 'S')) e.preventDefault();
+        });
+
         // ---- HIGH SPEED INTRO TRANSITION ----
-        const fullName = "HARIHARAN  R";
+        const fullName = "WELCOME TO MY CREATIVE SPACE";
         let charIndex = 0;
         const typedEl = document.getElementById('intro-name-el');
         const portalIntro = document.getElementById('portal-intro');
